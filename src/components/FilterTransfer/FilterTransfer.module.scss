@@ -1,0 +1,44 @@
+.transfer-filter {
+  width: 232px;
+  height: 252px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  color: #4a4a4a;
+
+  &__title {
+    font-size: 12px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+}
+
+.check {
+  display: flex;
+  font-size: 13px;
+  padding-left: 20px;
+  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &__input {
+    appearance: none;
+  }
+
+  &__box {
+    height: 20px;
+    width: 20px;
+    background-image: url(../../img/checkof.svg);
+    margin-right: 10px;
+  }
+
+  &__input:checked + &__box {
+    background-image: url(../../img/checkon.svg);
+  }
+
+  &:hover {
+    background-color: #f1fcff;
+  }
+}

@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3f7fa;
+  font-family: 'Open Sans', serif;
+  font-size: 40px;
+  color: #4a4a4a;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  width: 754px;
+}
+
+.logo {
+  width: 82px;
+  height: 89px;
+  margin: auto;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
