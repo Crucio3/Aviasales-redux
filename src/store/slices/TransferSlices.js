@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const transferSlice = createSlice({
   name: 'transfer',
-  initialState: { filter: [] },
+  initialState: { filter: [0, 1, 2, 3] },
   reducers: {
     all: (state) => {
       state.filter = [0, 1, 2, 3];

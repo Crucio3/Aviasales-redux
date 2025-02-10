@@ -1,13 +1,14 @@
 .filter {
   margin-bottom: 20px;
   display: flex;
-  width: 502px;
+  width: 100%;
 
   &__tab {
     display: flex;
+    padding: 0;
     justify-content: center;
     align-items: center;
-    width: 168px;
+    width: 33%;
     height: 50px;
     font-weight: 600;
   }
