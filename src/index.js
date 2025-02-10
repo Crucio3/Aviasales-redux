@@ -20,7 +20,7 @@ const AviasalesApp = () => {
       </div>
       <div className={classes.main}>
         <FilterTransfer />
-        <div>
+        <div className={classes.content}>
           <SpeedCostFilter />
           <TicketList />
           <MoreTickets />

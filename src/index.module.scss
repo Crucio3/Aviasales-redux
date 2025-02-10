@@ -28,8 +28,16 @@ body {
   justify-content: space-between;
 }
 
-@media (max-width: 600px) {
+.content {
+  width: 502px;
+}
+
+@media (max-width: 768px) {
   .app {
+    width: auto;
+  }
+
+  .content {
     width: auto;
   }
 }
