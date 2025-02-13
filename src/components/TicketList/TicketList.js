@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Spin, Alert } from 'antd';
 import { nanoid } from 'nanoid';
@@ -17,14 +17,16 @@ const TicketList = () => {
 
   let filteredList = [];
 
+  const ticketsWiKeys = useMemo(() => ticketsList.map((item) => ({ ...item, key: nanoid() })), [ticketsList]);
+
   if (speedCostFilter === 'cost') {
-    filteredList = [...ticketsList].sort((a, b) => a.price - b.price);
+    filteredList = [...ticketsWiKeys].sort((a, b) => a.price - b.price);
   } else if (speedCostFilter === 'speed') {
-    filteredList = [...ticketsList].sort(
+    filteredList = [...ticketsWiKeys].sort(
       (a, b) => a.segments[0].duration + a.segments[1].duration - b.segments[0].duration - b.segments[1].duration
     );
   } else if (speedCostFilter === 'optimum') {
-    filteredList = [...ticketsList].sort(
+    filteredList = [...ticketsWiKeys].sort(
       (a, b) =>
         (a.segments[0].duration + a.segments[1].duration) * a.price -
         (b.segments[0].duration + b.segments[1].duration) * b.price
@@ -35,7 +37,7 @@ const TicketList = () => {
     .filter((item) => transfers.some((length) => item.segments[0].stops.length === length))
     .slice(0, numberTickets)
     .map((item) => {
-      return <Ticket ticket={item} key={nanoid()} />;
+      return <Ticket ticket={item} key={item.key} />;
     });
 
   const dispatch = useDispatch();
