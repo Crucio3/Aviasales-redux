@@ -7,9 +7,20 @@ export const fetchId = createAsyncThunk('tickets/fetchId', async () => {
 });
 
 export const fetchTickets = createAsyncThunk('tickets/fetchTickets', async (id) => {
-  const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${id}`);
-  const data = await response.json();
-  return data.tickets;
+  let st;
+  let allTickets = [];
+  while (!st) {
+    let response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${id}`);
+    if (!response.ok) {
+      continue;
+    }
+    let data = await response.json();
+
+    st = data.stop;
+    allTickets = [...allTickets, ...data.tickets];
+  }
+
+  return allTickets;
 });
 
 const serviceSlice = createSlice({
